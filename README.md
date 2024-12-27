@@ -1,7 +1,7 @@
 ## 字魂清茶浅墨楷
 
 ```css
-@font-face {
+body {
   font-family: "QianMoKai";
 }
 ```
