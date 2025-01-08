@@ -1,13 +1,16 @@
 {
   "name": "codepzj-fonts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "浩瀚星河收藏的字体",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postpublish": "sync-npm-mirror codepzj-fonts"
   },
   "keywords": [
     "fonts"
   ],
   "author": "浩瀚星河 <email@codepzj.cn> (https://haohanxinghe.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sync-npm-mirror": "^1.0.0"
+  }
 }

@@ -1,0 +1,42 @@
+name: npm-publish
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "package.json"
+
+jobs:
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Install Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.12.0"
+
+      # Install dependencies
+      - name: Install packages
+        run: npm install --no-frozen-lockfile
+
+      # Add npm Token to .npmrc
+      - name: Add Npm Token
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" >> $HOME/.npmrc
+          ls -al $HOME
+          cat $HOME/.npmrc
+
+      - name: Publish package
+        run: npm publish --access public
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+
+      # Sync npm mirror after publish
+      - name: Sync codepzj-fonts
+        run: npm run postpublish

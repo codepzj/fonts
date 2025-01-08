@@ -6,4 +6,5 @@ body {
 }
 ```
 
-https://cdn.jsdelivr.net/npm/codepzj-fonts@1.0.0/QianMoKai/result.css
+https://cdn.jsdelivr.net/npm/codepzj-fonts@1.0.1/QianMoKai/result.css
+https://cdn.jsdelivr.net/npm/codepzj-fonts@1.0.1/TsangerJinKai05/result.css
